@@ -31,6 +31,11 @@ public class User implements UserDetails {
     @JsonIgnore
     private String password;
     private String address;
+
+    @Column(nullable = false)
+    private boolean isBroadBandUser=true;
+    @Column(nullable = false)
+    private boolean isBusinessUser=false;
     private Role role;
 
 
