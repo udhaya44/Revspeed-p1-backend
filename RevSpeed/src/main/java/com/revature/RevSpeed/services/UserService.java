@@ -57,4 +57,22 @@ public class UserService {
         }
 
     }
+
+
+    public String updateUsersDetails(String id, User user){
+        Optional<User> user1= userRepository.findById(String.valueOf(id));
+
+        if(user1.isPresent()){
+            User existingUser = user1.get();
+            existingUser.setFirstName(user.getFirstName());
+            existingUser.setLastName(user.getLastName());
+//            existingUser.setEmail(user.getEmail());
+            existingUser.setPhoneNo(user.getPhoneNo());
+            existingUser.setAddress(user.getAddress());
+            userRepository.save(existingUser);
+
+        }
+
+        return "user details updated";
+    }
 }
