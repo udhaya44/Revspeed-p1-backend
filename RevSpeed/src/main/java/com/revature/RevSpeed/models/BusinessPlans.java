@@ -18,14 +18,14 @@ public class BusinessPlans {
     private String planType;
     private String dataLimit;
     private int validity;
-    private double price;
+    private String price;
     private String speed;
 
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Service service;
 
-    public BusinessPlans(String planName, String planType,Service service, String dataLimit , int validity, double price, String speed) {
+    public BusinessPlans(String planName, String planType,Service service, String dataLimit , int validity, String price, String speed) {
         this.planName = planName;
         this.planType = planType;
         this.service=service;

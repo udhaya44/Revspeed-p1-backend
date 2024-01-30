@@ -1,5 +1,6 @@
 package com.revature.RevSpeed.services;
 
+import com.revature.RevSpeed.dto.UserActivePlanDetails;
 import com.revature.RevSpeed.models.BroadbandPlans;
 import com.revature.RevSpeed.models.BusinessPlans;
 import com.revature.RevSpeed.models.UserServiceLink;
@@ -112,4 +113,8 @@ public class UserServiceLinkService {
     public List<UserServiceLink> findUserServiceDetailsByUserId(String userId) {
         return userServiceLinkRepository.findUserServiceDetailsByUserId(userId);
     }
+
+//    public List<UserServiceLink> findByUserIdAndBroadbandActive(String userId, Boolean broadbandActive) {
+//        return userServiceLinkRepository.findByUserIdAndBroadbandActive(userId, broadbandActive);
+//    }
 }

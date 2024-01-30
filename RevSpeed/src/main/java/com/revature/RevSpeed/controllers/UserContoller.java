@@ -10,6 +10,7 @@ import com.revature.RevSpeed.services.BroadbandPlansService;
 import com.revature.RevSpeed.services.EmailService;
 import com.revature.RevSpeed.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +21,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -139,4 +141,21 @@ public class UserContoller {
         return userService.updateUsersDetails(id,user);
     }
 
+
+
+//    @DeleteMapping("/deleteUser/{id}")
+//    public void deleteUserByUserId(@PathVariable String id){
+//        userService.deletUser(id);
+//    }
+
+    @PutMapping("/updatePasswordAfterLogin/{id}/{password}")
+    public String updatePassworAfterlogin(@PathVariable String id, @PathVariable String password){
+        System.out.println("inside controller");
+        return userService.updatePassword(id,password);
+    }
+
+    @PutMapping("/deleteUser/{userId}")
+    public void updateIsBroadbandUser(@PathVariable String userId) {
+        userService.deleteuser(userId);
+    }
 }
