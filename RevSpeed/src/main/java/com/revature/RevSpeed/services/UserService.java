@@ -75,4 +75,26 @@ public class UserService {
 
         return "user details updated";
     }
+
+    public void deletUser(String id){
+         userRepository.deleteByEmail(id);
+    }
+
+    public String updatePassword(String id,String password){
+        System.out.println("inside service");
+
+        Optional<User> user =userRepository.findById(id);
+        if(user.isPresent()){
+            User user1=user.get();
+            System.out.println(password);
+            user1.setPassword(passwordEncoder.encode(password));
+            userRepository.save(user1);
+        }
+        return "passsword updated";
+    }
+
+
+    public void deleteuser(String userId) {
+        userRepository.deleteuser(userId);
+    }
 }

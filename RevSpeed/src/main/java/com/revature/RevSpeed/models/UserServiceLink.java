@@ -39,4 +39,14 @@ public class UserServiceLink {
 
     @Column(nullable = false)
     private Boolean BusinessIsActive=false;
+
+    public UserServiceLink(BroadbandPlans broadbandPlans, BusinessPlans businessPlans, User user, LocalDate subscriptionStartDate, LocalDate subscriptionEndDate, Boolean broadbandActive, Boolean businessIsActive) {
+        this.broadbandPlans = broadbandPlans;
+        this.businessPlans = businessPlans;
+        this.user = user;
+        this.subscriptionStartDate = subscriptionStartDate;
+        this.subscriptionEndDate = subscriptionEndDate;
+        this.broadbandActive = broadbandActive;
+        BusinessIsActive = businessIsActive;
+    }
 }
