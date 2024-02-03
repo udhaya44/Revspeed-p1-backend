@@ -90,7 +90,7 @@ public class UserServiceLinkService {
         return userServiceLinkRepository.save(userServiceLink);
     }
 
-    private LocalDate calculateEndDate(LocalDate startDate, String planType) {
+    LocalDate calculateEndDate(LocalDate startDate, String planType) {
         int daysToAdd;
 
         switch (planType.toUpperCase()) {

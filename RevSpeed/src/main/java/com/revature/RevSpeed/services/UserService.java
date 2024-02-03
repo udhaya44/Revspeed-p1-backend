@@ -97,4 +97,23 @@ public class UserService {
     public void deleteuser(String userId) {
         userRepository.deleteuser(userId);
     }
+
+    public User createBusinessUser(SignUpRequest signUoRequest){
+        User user=new User();
+
+        user.setUserId(UUID.randomUUID().toString());
+        user.setFirstName(signUoRequest.getFirstName());
+        user.setLastName(signUoRequest.getLastName());
+        user.setEmail(signUoRequest.getEmail());
+        user.setPhoneNo(signUoRequest.getPhoneNo());
+        user.setPassword(passwordEncoder.encode(signUoRequest.getPassword()));
+        user.setAddress(signUoRequest.getAddress());
+        user.setRole(Role.USER);
+        user.setBusinessUser(true);
+        user.setBroadBandUser(false);
+        System.out.println(user +" created user");
+        return userRepository.save(user);
+    }
+
+
 }

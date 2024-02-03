@@ -1,7 +1,9 @@
 package com.revature.RevSpeed.services;
 
 import com.revature.RevSpeed.models.User;
+import com.revature.RevSpeed.models.UserServiceLink;
 import com.revature.RevSpeed.repositorys.UserRepository;
+import com.revature.RevSpeed.repositorys.UserServiceLinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class AdminService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private UserServiceLinkRepository userServiceLinkRepository;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -52,4 +57,9 @@ public class AdminService {
     public List<Map<String, Object>> getActiveSub(){
         return userRepository.getActiveSub();
     }
+
+    public List<UserServiceLink> getUserServiceLinkTableData(){
+        System.out.println("test--------------------"+userServiceLinkRepository.findAll());
+        return userServiceLinkRepository.findAll();
+}
 }
