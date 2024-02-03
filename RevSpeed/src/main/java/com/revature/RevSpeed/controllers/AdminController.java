@@ -1,6 +1,8 @@
 package com.revature.RevSpeed.controllers;
 
+import com.revature.RevSpeed.dto.SignUpRequest;
 import com.revature.RevSpeed.models.User;
+import com.revature.RevSpeed.models.UserServiceLink;
 import com.revature.RevSpeed.services.AdminService;
 import com.revature.RevSpeed.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/getUsers")
     public List<User> getAllUsers() {
@@ -53,4 +58,18 @@ public class AdminController {
         return adminService.getActiveSub();
     }
 
+    @PostMapping("/createBusinessUser")
+    public User createUser(@RequestBody SignUpRequest signUpRequest){
+        return userService.createBusinessUser(signUpRequest);
+    }
+
+    @PostMapping("/updateBusinessUser/{userId}")
+    public void updateBusinessUser(@PathVariable String userId ,@RequestBody User user){
+        userService.updateUsersDetails(userId,user);
+    }
+
+    @GetMapping("/getUserServiceLikeTable")
+    public List<UserServiceLink> getUserServiceLikeTable(){
+        return adminService.getUserServiceLinkTableData();
+}
 }

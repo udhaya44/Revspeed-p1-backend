@@ -12,6 +12,7 @@ public class SignUpRequest {
     private String phoneNo;
     private String password;
     private String address;
-
+    private boolean isBroadBandUser;
+    private boolean isBusinessUser;
 
 }
