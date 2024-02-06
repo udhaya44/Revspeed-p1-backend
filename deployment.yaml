@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: revspeed-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: revspeed-gke
+  template:
+    metadata:
+      labels:
+        app: revspeed-gke
+    spec:
+      containers:
+        - name: app
+          image: gcr.io/PROJECT_ID/IMAGE:TAG
+          imagePullPolicy: Always
