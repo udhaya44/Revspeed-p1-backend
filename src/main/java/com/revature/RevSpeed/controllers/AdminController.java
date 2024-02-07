@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 import java.util.List;
 
+// hi
 //@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/admin")
