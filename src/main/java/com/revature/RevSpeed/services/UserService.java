@@ -59,7 +59,7 @@ public class UserService {
     }
 
 
-    public String updateUsersDetails(String id, User user){
+    public void updateUsersDetails(String id, User user){
         Optional<User> user1= userRepository.findById(String.valueOf(id));
 
         if(user1.isPresent()){
@@ -73,7 +73,7 @@ public class UserService {
 
         }
 
-        return "user details updated";
+
     }
 
     public void deletUser(String id){
@@ -93,7 +93,7 @@ public class UserService {
         return "passsword updated";
     }
 
-    public String updatePasswordByEmail(String email, String password) {
+    public void updatePasswordByEmail(String email, String password) {
         System.out.println("inside service");
 
         Optional<User> userOptional = userRepository.findByEmail(email);
@@ -102,9 +102,9 @@ public class UserService {
             System.out.println(password);
             user.setPassword(passwordEncoder.encode(password));
             userRepository.save(user);
-            return "Password updated successfully";
+//            return "Password updated successfully";
         } else {
-            return "User not found with the provided email";
+//            return "User not found with the provided email";
         }
     }
 

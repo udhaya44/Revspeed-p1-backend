@@ -37,10 +37,10 @@ public class EmailSendController {
 
 
     @PutMapping("/updatePassword/{email}/{newPassword}")
-    public ResponseEntity<String> updatePassword(@PathVariable String email, @PathVariable String newPassword) {
+    public void updatePassword(@PathVariable String email, @PathVariable String newPassword) {
         System.out.println(email+newPassword);
-        userService.updatePasswordByEmail(email, newPassword);
-        return ResponseEntity.ok("Password updated successfully");
+
+          userService.updatePasswordByEmail(email, newPassword);
     }
 
 

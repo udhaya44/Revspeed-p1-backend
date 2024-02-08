@@ -126,7 +126,7 @@ public class UserContoller {
 
         Random random =new Random();
         int otp= random.nextInt(999999);
-        String subject="Forgout password";
+        String subject="Forget password";
         String message="Thank you for using RevSpeed! Your One-Time Password (OTP) for account verification is:" +otp+ "\n" +
                 "      Please use this code to complete the verification process. If you didn't request this OTP, please ignore this email.  \n" +
                 "      For security reasons, please do not share your OTP with anyone. If you encounter any issues or did not request this OTP, please contact our support team immediately";
@@ -137,8 +137,8 @@ public class UserContoller {
 
 
     @PutMapping("/updateUserDetails/{id}")
-    public String updateUserDetails(@PathVariable String id,@RequestBody User user){
-        return userService.updateUsersDetails(id,user);
+    public void updateUserDetails(@PathVariable String id,@RequestBody User user){
+         userService.updateUsersDetails(id,user);
     }
 
 
