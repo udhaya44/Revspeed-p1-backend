@@ -12,10 +12,10 @@ import java.security.Principal;
 import java.util.List;
 
 // hi
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = {"http://localhost:4200"})
+//@CrossOrigin(origins = {"http://localhost:4200"})
 public class AdminController {
 
     @Autowired

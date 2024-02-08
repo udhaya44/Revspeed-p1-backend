@@ -2,6 +2,7 @@ package com.revature.RevSpeed.controllers;
 
 import com.revature.RevSpeed.models.Email;
 import com.revature.RevSpeed.services.EmailService;
+import com.revature.RevSpeed.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,9 @@ public class EmailSendController {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping(value = "/sendemail")
 //    @Timed(value="sendEmail.time",description="email sending")
@@ -32,10 +36,10 @@ public class EmailSendController {
     }
 
 
-    @PostMapping(value="/updatePassword")
-    public ResponseEntity<String> updatePassword(@RequestParam String email, @RequestParam String newPassword) {
+    @PutMapping("/updatePassword/{email}/{newPassword}")
+    public ResponseEntity<String> updatePassword(@PathVariable String email, @PathVariable String newPassword) {
         System.out.println(email+newPassword);
-        emailService.updatePassword(email, newPassword);
+        userService.updatePasswordByEmail(email, newPassword);
         return ResponseEntity.ok("Password updated successfully");
     }
 

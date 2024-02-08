@@ -93,6 +93,22 @@ public class UserService {
         return "passsword updated";
     }
 
+    public String updatePasswordByEmail(String email, String password) {
+        System.out.println("inside service");
+
+        Optional<User> userOptional = userRepository.findByEmail(email);
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+            System.out.println(password);
+            user.setPassword(passwordEncoder.encode(password));
+            userRepository.save(user);
+            return "Password updated successfully";
+        } else {
+            return "User not found with the provided email";
+        }
+    }
+
+
 
     public void deleteuser(String userId) {
         userRepository.deleteuser(userId);

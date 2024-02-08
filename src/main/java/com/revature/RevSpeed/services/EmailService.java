@@ -90,22 +90,22 @@ public class EmailService {
     }
 
 
-    public void updatePassword(String email, String newPassword) {
-
-        Optional<User> userOptional = userRepository.findByEmail(email);
-        System.out.println(userOptional);
-
-        if (userOptional.isPresent()) {
-
-            User user = userOptional.get();
-            user.setPassword( passwordEncoder.encode(newPassword));
-            userRepository.save(user);
-        } else {
-
-            // Handle the case where the user with the given email is not found
-            // You can throw an exception, return a specific response, etc.
-        }
-    }
+//    public void updatePassword(String email, String newPassword) {
+//
+//        Optional<User> userOptional = userRepository.findByEmail(email);
+//        System.out.println(userOptional);
+//
+//        if (userOptional.isPresent()) {
+//
+//            User user = userOptional.get();
+//            user.setPassword( passwordEncoder.encode(newPassword));
+//            userRepository.save(user);
+//        } else {
+//
+//            // Handle the case where the user with the given email is not found
+//            // You can throw an exception, return a specific response, etc.
+//        }
+//    }
 
 
 
